@@ -94,4 +94,18 @@ public class Book {
 		System.out.println("Title:\t\t" + title);
 		System.out.println("Description:\t" + description);
 	}
+	public double getPriceOfBooks(int copies)
+	{
+		double totalPrice;
+		if(isInStock)
+		{
+			totalPrice = price * copies;
+		}
+		else
+		{
+			System.out.println(title + " by " + author + " is out of stock.");
+			totalPrice = 0.00;
+		}
+		return totalPrice;
+	}
 }
