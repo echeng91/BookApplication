@@ -12,78 +12,78 @@ public class Book {
 	{
 		
 	}
-	public Book(String title, String author, String description, double price, boolean inStock)
+	public Book(String title_, String author_, String description_, double price_, boolean isInStock_)
 	{
-		this.title = title;
-		this.author = author;
-		this.description = description;
-		this.price = price;
-		this.isInStock = inStock;
+		this.title = title_;
+		this.author = author_;
+		this.description = description_;
+		this.price = price_;
+		this.isInStock = isInStock_;
 	}
-	public Book(String title, String author, String description, double price)
+	public Book(String title_, String author_, String description_, double price_)
 	{
-		this.title = title;
-		this.author = author;
-		this.description = description;
-		this.price = price;
+		this.title = title_;
+		this.author = author_;
+		this.description = description_;
+		this.price = price_;
 	}
-	public Book(String title, String author, String description)
+	public Book(String title_, String author_, String description_)
 	{
-		this.title = title;
-		this.author = author;
-		this.description = description;
+		this.title = title_;
+		this.author = author_;
+		this.description = description_;
 	}
-	public Book(String title, String author)
+	public Book(String title_, String author_)
 	{
-		this.title = title;
-		this.author = author;
+		this.title = title_;
+		this.author = author_;
 	}
 	//end Constructors
 	
 	//Getters
 	public String getTitle()
 	{
-		return this.title;
+		return title;
 	}
 	public String getAuthor()
 	{
-		return this.author;
+		return author;
 	}
 	public String getDescription()
 	{
-		return this.description;
+		return description;
 	}
 	public double getPrice()
 	{
-		return this.price;
+		return price;
 	}
 	public boolean getIsInStock()
 	{
-		return this.isInStock;
+		return isInStock;
 	}
 	
 	//end Getters
 	
 	//Setters
-	public void setTitle(String title)
+	public void setTitle(String title_)
 	{
-		this.title = title;
+		title = title_;
 	}
-	public void setAuthor(String author)
+	public void setAuthor(String author_)
 	{
-		this.author = author;
+		author = author_;
 	}
-	public void setDescription(String description)
+	public void setDescription(String description_)
 	{
-		this.description = description;
+		description = description_;
 	}
-	public void setPrice(double price)
+	public void setPrice(double price_)
 	{
-		this.price = price;
+		price = price_;
 	}
-	public void setIsInStock(boolean inStock)
+	public void setIsInStock(boolean isInStock_)
 	{
-		this.isInStock = inStock;
+		isInStock = isInStock_;
 	}
 	//end Setters
 	
