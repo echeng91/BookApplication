@@ -6,6 +6,7 @@ public class Book {
 	private String description;
 	private double price;
 	private boolean isInStock;
+	private String SKU;
 	
 	//Constructors
 	public Book()
@@ -14,29 +15,38 @@ public class Book {
 	}
 	public Book(String title_, String author_, String description_, double price_, boolean isInStock_)
 	{
-		this.title = title_;
-		this.author = author_;
-		this.description = description_;
-		this.price = price_;
-		this.isInStock = isInStock_;
+		title = title_;
+		author = author_;
+		description = description_;
+		price = price_;
+		isInStock = isInStock_;
 	}
 	public Book(String title_, String author_, String description_, double price_)
 	{
-		this.title = title_;
-		this.author = author_;
-		this.description = description_;
-		this.price = price_;
+		title = title_;
+		author = author_;
+		description = description_;
+		price = price_;
 	}
 	public Book(String title_, String author_, String description_)
 	{
-		this.title = title_;
-		this.author = author_;
-		this.description = description_;
+		title = title_;
+		author = author_;
+		description = description_;
 	}
 	public Book(String title_, String author_)
 	{
-		this.title = title_;
-		this.author = author_;
+		title = title_;
+		author = author_;
+	}
+	public Book(String SKU_, String title_, String author_, String description_, double price_, boolean isInStock_)
+	{
+		SKU = SKU_;
+		title = title_;
+		author = author_;
+		description = description_;
+		price = price_;
+		isInStock = isInStock_;
 	}
 	//end Constructors
 	
@@ -61,7 +71,10 @@ public class Book {
 	{
 		return isInStock;
 	}
-	
+	public String getSKU()
+	{
+		return SKU;
+	}
 	//end Getters
 	
 	//Setters
@@ -85,14 +98,17 @@ public class Book {
 	{
 		isInStock = isInStock_;
 	}
+	public void setSKU(String SKU_)
+	{
+		SKU = SKU_;
+	}
 	//end Setters
 	
 	//other methods
-	public void getDisplayText()
+	public String getDisplayText()
 	{
-		System.out.println("Author:\t\t" + author);
-		System.out.println("Title:\t\t" + title);
-		System.out.println("Description:\t" + description);
+		String displayText = "Author:\t\t" + author + "\nTitle:\t\t" + title + "\nDescription:\t" + description + "\n";
+		return displayText;
 	}
 	public double getPriceOfBooks(int copies)
 	{
@@ -103,7 +119,7 @@ public class Book {
 		}
 		else
 		{
-			System.out.println(title + " by " + author + " is out of stock.");
+			//Book is out of stock, thus customer need not pay anything.
 			totalPrice = 0.00;
 		}
 		return totalPrice;
