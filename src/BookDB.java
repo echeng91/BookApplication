@@ -21,13 +21,18 @@ public class BookDB {
 	}
 	public Book getBookFromSKU(String SKU)
 	{
-		Book foundBook = new Book("", "", "", 0.0, false);
-		//SKU should be unique
+		Book foundBook = new Book();
+		foundBook.setSKU(SKU);
 		for(int i = 0; i < books.length; i++)
 		{
 			if(books[i].getSKU().equals(SKU))
 			{
-				foundBook = books[i];
+				foundBook.setTitle(books[i].getTitle());
+				foundBook.setAuthor(books[i].getAuthor());
+				foundBook.setDescription(books[i].getDescription());
+				foundBook.setPrice(books[i].getPrice());
+				foundBook.setIsInStock(books[i].getIsInStock());
+				break;
 			}
 		}
 		return foundBook;
