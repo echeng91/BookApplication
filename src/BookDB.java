@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class BookDB {
 
 	private static Connection con = null;
-	
+
 	//Constructors
 	public BookDB()
 	{
@@ -87,7 +87,7 @@ public class BookDB {
 		}
 		return count;
 	}
-	
+
 	public int deleteBook(String SKU)
 	{
 		int count = 0;
@@ -100,7 +100,7 @@ public class BookDB {
 		}
 		return count;
 	}
-	
+
 	public void connect()
 	{
 		try{
@@ -112,7 +112,7 @@ public class BookDB {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void disconnect()
 	{
 		try {
@@ -120,5 +120,35 @@ public class BookDB {
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
+	}
+
+	public int updateThreeBookTransaction(String sku1, String sku2, String sku3, double price1, double price2, double price3)
+	{
+		int count = 0;
+		try{
+			con.setAutoCommit(false);
+			PreparedStatement update1 = con.prepareStatement("update books set price = ? where sku = ?");
+			update1.setDouble(1, price1);
+			update1.setString(2, sku1);
+			count = update1.executeUpdate();
+			PreparedStatement update2 = con.prepareStatement("update books set price = ? where sku = ?");
+			update2.setDouble(1, price2);
+			update2.setString(2, sku2);
+			count = update2.executeUpdate();
+			PreparedStatement update3 = con.prepareStatement("update books set price = ? where sku = ?");
+			update3.setDouble(1, price3);
+			update3.setString(2, sku3);
+			count = update3.executeUpdate();
+			con.commit();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try{
+				con.setAutoCommit(true);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return count;
 	}
 }

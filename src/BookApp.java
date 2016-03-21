@@ -63,7 +63,7 @@ public class BookApp {
 		searchBook = dbBook.getBookFromSKU("SANGUOYY");
 		System.out.println(searchBook.getDisplayText());
 		 */
-		
+		/*
 		System.out.println("Input information of book to add.");
 		System.out.print("SKU: ");
 		sku = sc.nextLine();
@@ -82,11 +82,11 @@ public class BookApp {
 			System.out.println(e.getMessage());
 		}
 		dbBook.addBook(sku, title, author, description, price);
-		
+
 		System.out.println("Input SKU of book to change price of: ");
 		sku = sc.nextLine();
 		searchBook = dbBook.getBookFromSKU(sku);
-		System.out.println("Current price of" + searchBook.getTitle() + ": $" + searchBook.getPrice());
+		System.out.println("Current price of " + searchBook.getTitle() + ": $" + searchBook.getPrice());
 		try {
 			System.out.print("Input new price: $");
 			price = sc.nextDouble();
@@ -98,6 +98,33 @@ public class BookApp {
 		System.out.println("Input SKU of book to delete: ");
 		sku = sc.nextLine();
 		dbBook.deleteBook(sku);
+		 */
+		try {
+			System.out.println("Input SKU of first book to change price of: ");
+			String sku1 = sc.nextLine();
+			searchBook = dbBook.getBookFromSKU(sku1);
+			System.out.println("Current price of " + searchBook.getTitle() + ": $" + searchBook.getPrice());
+			System.out.print("Input new price: $");
+			double price1 = sc.nextDouble();
+			sc.nextLine();
+			System.out.println("Input SKU of second book to change price of: ");
+			String sku2 = sc.nextLine();
+			searchBook = dbBook.getBookFromSKU(sku2);
+			System.out.println("Current price of " + searchBook.getTitle() + ": $" + searchBook.getPrice());
+			System.out.print("Input new price: $");
+			double price2 = sc.nextDouble();
+			sc.nextLine();
+			System.out.println("Input SKU of third book to change price of: ");
+			String sku3 = sc.nextLine();
+			searchBook = dbBook.getBookFromSKU(sku3);
+			System.out.println("Current price of " + searchBook.getTitle() + ": $" + searchBook.getPrice());
+			System.out.print("Input new price: $");
+			double price3 = sc.nextDouble();
+			sc.nextLine();
+			dbBook.updateThreeBookTransaction(sku1, sku2, sku3, price1, price2, price3);
+		} catch (java.util.InputMismatchException e) {
+			System.out.println(e.getMessage());
+		}
 
 		dbBook.disconnect();
 		sc.close();
