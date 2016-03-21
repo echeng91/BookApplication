@@ -27,6 +27,7 @@ public class Book {
 		author = author_;
 		description = description_;
 		price = price_;
+		isInStock = true;
 	}
 	public Book(String title_, String author_, String description_)
 	{
@@ -107,7 +108,7 @@ public class Book {
 	//other methods
 	public String getDisplayText()
 	{
-		String displayText = "Author:\t\t" + author + "\nTitle:\t\t" + title + "\nDescription:\t" + description + "\n";
+		String displayText = "Author:\t\t" + author + "\nTitle:\t\t" + title + "\nDescription:\t" + description + "\nPrice:\t" + price + "\n";
 		return displayText;
 	}
 	public double getPriceOfBooks(int copies)
